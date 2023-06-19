@@ -135,3 +135,20 @@ with st.expander('Q14 What is Sampling and why do we need it ?'):
     
 with st.expander('Q15 What is Stratified Sampling ?'):
     mdlit("> Stratified sampling is a probability sampling technique wherein the entire population is divided into different subgroups called strata, and then aprobability sample is drawn proportionally from each stratum.<br> For instance, in case of a binary classification, if the ratio of positive and negative labeled data was 9:1, then in stratified sampling, you would randomly select subsample from each of the positive and negative labeled dataset such that after sampling, their ratio is still 9:1.<br> Stratified sampling has several advantages over simple random sampling. For example, using stratified sampling, it may be possible to increase the precision with the same sample size or to reduce the sample size required toachieve the same precision.") 
+    
+with st.expander('Q16 Define Confidence Interval ?'):
+    mdlit("> A confidence interval is an interval estimate which is likely to include an unknown population parameter, the estimated range being calculated from the given sample dataset. It simply means the range of values for which you are completely sure that the true value of your variable would lie in.")
+    
+with st.expander('Q17 What do you mean by i.i.d assumption ?'):
+    mdlit("> We often assume that the instances in the training dataset are independent and identically distributed (i.i.d.), i.e, they are mutually independent of each other and follow the same probability distribution. It means that the order in which the training instances are supplied should not affect your model and that the instances are not related to each other. If the instances do not follow an identical distribution, it would be fairly difficult to interpret the data.")
+    
+with st.expander('Q18 What do we call it Generalized Linear Model (GLM) and when it is clearly nonlinear ?'):
+    mdlit("> The Generalized Linear Model (GLM) is a generalization of ordinary linear regression in which the response variables have error distribution models other than a normal distribution. The **linear** component in GLM means that the predictor is a linear combination of the parameters, and it is related to the response variable via a link function. Let us assume that **Y** is the response variable and **X** is the input independent variable. Then,")
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.write(" ")
+    with c2:
+        st.image('assets/img3.png')
+    with c3:
+        st.write(" ")
+    mdlit("> where E(Y) is the expected value of Y, Xβ is the linear predictor, a linear combination of unknown parameters β and g is the link function.")
