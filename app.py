@@ -71,3 +71,67 @@ with st.expander('Q4. What is the difference between Data mining and Machine lea
     
 with st.expander('Q5. What is Inductive Machine Learning ?'):
     mdlit("> Inductive Machine Learning involves the process of learning by examples, where a system tries to induce a general rule from a set of observed instances. The classic Machine Learning approach follows the paradigm of induction and deduction.<br> Inductive Machine Learning is nothing but the inductive step in which you learn the model from the given dataset. Similarly, the deductive step is the one in which the learned model is used to predict the outcome of the test dataset.")
+    
+with st.expander('Q6 Pick an algorithm you like and walk through its math and them implementation of it with its pseudo code ?'):
+    mdlit('> Here, you can talk about any particular algorithm that you have worked on and/or feel comfortable discussing.')
+
+with st.expander('Q7 Do you know any tools for running a Machine Learning algorithm in parallel?'):
+    mdlit("> Some of the tools, software or hardware, used to execute the Machine Learning algorithms in parallel include Matlab Parfor, GPUs, MapReduce, Spark, Graphlab, Giraph, Vowpal, Parameter Server etc.")
+    
+with st.expander('Q8 What are the different Machine Learning Approaches ?'):
+    mdlit("> The different types of Machine Learning Approaches are :- ")
+    mdlit("> **Supervised Learning:** where the output variable (the one you want to predict) is labeled in the training dataset (data used to build the Machine Learning model). Techniques include Decision Trees, Random Forests, Support Vector Machines, Bayesian Classifier etc. For instance, predicting whether a given email is SPAM or not, given sample emails with the labels whether they are SPAM or not, falls within Supervised learning.")
+    mdlit("> **Unsupervised Learning:** where the training dataset does not contain the output variable. The objective is to group the similar data together instead of predicting any specific value. Clustering, Dimensionality Reduction and Anomaly Detection are some of the Unsupervised Learning techniques. For instance, grouping the customers based on their purchasing pattern.")
+    mdlit("> **Semi-supervised Learning:** This technique falls in between Supervised and Unsupervised Learning because it has a small amount of labeled data with a relatively large amount of unlabeled data. You can find its applications in problems such as Web Content Classification, and Speech Recognition, where it is very hard to get labeled data but you can easily get lots of unlabeled data.")
+    mdlit("> **Reinforcement Learning:** Unlike traditional Machine Learning techniques, Reinforcement Learning focuses on finding a balance between Exploration (of unknown new territory) and Exploitation (of current knowledge). It monitors the response of the actions taken through trial and error and measures the response against a reward. The goal is to take such actions for the new data so that the long-term reward is maximized. Let’s say that you are in an unknown terrain, and each time you step on a rock, you get negative reward whereas each time you find a coin, you get a positive reward. In traditional Machine Learning, at each step, you would greedily take such an action whose immediatereward is maximum even though there might be another path for which the overall reward is more. In Reinforcement Learning, after every few steps, you take a less greedy step to explore the full terrain. After much exploration and exploitation, you would know the best way to walk through the terrain so as to maximize your total reward.")
+
+with st.expander('Q9 How would you differentiate Supervised learning and Unsupervised learning ?'):
+    mdlit("> **Supervised Learning** is where you have both the input variable x and the output variable y and you use an algorithm to learn the mapping function from x to y and predict the output of the new data. Supervised Learning can further be classified as a Classification or a Regression technique.<br><br> **Unsupervised Learning**, on the other hand, is where you only have the input variable x but no corresponding output variable y. The goal in Unsupervised Learning is to model the underlying structure and distribution of the data. Unsupervised Learning techniques include Clustering, Anomaly Detection, and Dimensionality Reduction.")
+    
+with st.expander('Q10 What are the different stages to learn hypothesis or models in Machine Learning ?'):
+    mdlit("> A hypothesis is a function that is (very close to) the true function which maps the input to the output. The goal is to find such a hypothesis which can learn the true function as efficiently as possible. Following are the three main stages of learning a model:")
+    mdlit("> **A. Model Building :** Model building: Learning from the training dataset and building a Machine Learning model using it. ")
+    mdlit("> **B. Model Testing:** Testing the learned model using testing dataset.")
+    mdlit("> **C Applying the Model:** Model building and testing are performed iteratively until the learned model reaches the desired accuracy. Once the model is finalized, it is applied to the new data.")
+    st.code("""
+            # Let's use Support Vector Machine for our question.
+            from sklearn.svm import SVC
+            from sklearn import datasets
+            from sklearn.model_selection import train_test_split
+            from sklearn.metrics import classification_report
+            # In this example, we will use the standard iris dataset available
+            iris = datasets.load_iris()
+            # Here, we will split it into training and test dataset (90-10 ratio).
+            X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.10)
+            # Model building is initializing a Model with the correct set of parameters
+            # and fitting our training dataset.
+            model = SVC(kernel='linear')
+            model.fit(X_train, y_train)
+            # Model testing is predicting the values for test dataset
+            y_predicted = model.predict(X_test)
+            print(classification_report(y_test, y_predicted))
+            # Based on the model's metrics, you can either deploy your model or re-train it.
+            """)
+
+with st.expander('Q11 What is the difference between Causation and Correlation ?'):
+    mdlit("> **Causation** is a relationship between two variables such that one of them is caused by the occurrence of the other.<br><br>**Correlation**, on the other hand, is a relationship observed between two variables which are related to each other but not caused by one another.")
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.write(" ")
+    with c2:
+        st.image('assets/img2.png')
+    with c3:
+        st.write(" ")
+    mdlit("> In above Figure, you can see that inflation causes the price fluctuations in petrol and groceries so, inflation has a causation relationship with both of them. Between petrol and groceries, there is a correlation that both of them can increase or decrease due to the changes in inflation, but neither of them causes or impacts the other one.")
+    
+with st.expander('Q12 What is the difference between Online and Offline(batch) learning ?'):
+    mdlit("> The major difference is that in case of Online learning, the data becomes available in real-time in a sequential manner, one example at a time, whereas in Offline learning, the complete dataset is statically available. An example of Online learning is a Real-Time recommendation system on amazon.com where Amazon learns from each purchase you make and recommends you similar products.<br><br> Each one has its own advantages and disadvantages. Online learning is time critical so you may not be able to use all the data to train your model whereas with offline learning, you won’t be able to learn in real-time. Quite often, companies use a hybrid approach in which they train the models both online and offline. They would learn a model offline from the static data to interpret global patterns and then incorporate the real-time data for online learning.<br><br> For instance, Twitter could learn a model offline to analyze the sentiments on a global scale. And if an event is happening at a particular place, it could use an online learning model on top of the already learned model to interpret real- time sentiments of the event.")
+
+with st.expander('Q13 What is the difference between Classification and Regression ?'):
+    mdlit("> Classification is a kind of Supervised Learning technique where the output label is discrete or categorical. Regression, on the other hand, is a Supervised Learning technique which is used to predict continuous or real-valued variables.<br><br> For instance, predicting stock price is a Regression problem because the stock price is a continuous variable which can take any real-value whereas predicting whether the email is spam or not is a Classification problembecause in this case, the output is discrete and has only two possible values, yes or no.")
+    
+with st.expander('Q14 What is Sampling and why do we need it ?'):
+    mdlit("> Sampling is a process of choosing a subset from a target population which would serve as its representative. We use the data from the sample to understand the pattern in the population as a whole. Sampling is necessary because often we can not gather or process the complete data within a reasonable time. There are many ways to perform sampling. Some of the most commonly used techniques are Random Sampling, Stratified Sampling, and Clustering Sampling.")
+    
+with st.expander('Q15 What is Stratified Sampling ?'):
+    mdlit("> Stratified sampling is a probability sampling technique wherein the entire population is divided into different subgroups called strata, and then aprobability sample is drawn proportionally from each stratum.<br> For instance, in case of a binary classification, if the ratio of positive and negative labeled data was 9:1, then in stratified sampling, you would randomly select subsample from each of the positive and negative labeled dataset such that after sampling, their ratio is still 9:1.<br> Stratified sampling has several advantages over simple random sampling. For example, using stratified sampling, it may be possible to increase the precision with the same sample size or to reduce the sample size required toachieve the same precision.") 
