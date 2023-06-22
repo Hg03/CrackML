@@ -152,3 +152,32 @@ with st.expander('Q18 What do we call it Generalized Linear Model (GLM) and when
     with c3:
         st.write(" ")
     mdlit("> where E(Y) is the expected value of Y, Xβ is the linear predictor, a linear combination of unknown parameters β and g is the link function.")
+    
+with st.expander('Q19. Define Conditional Probability ?'):
+    mdlit("Conditional Probability is a measure of the probability of one event, given that another event has occurred. Let’s say that you have 2 events, A and B.Then, the conditional probability of A, given B has already occurred, is given as:")
+    c1,c2,c3 = st.columns(3)
+    with c1:
+        st.write(" ")
+    with c2:
+        st.image('assets/img4.png')
+    with c3:
+        st.write(" ")
+        
+    mdlit("where ∩ stands for intersection. So, the conditional probability is the joint probability of both the events divided by the probability of event B.")
+    
+with st.expander('Q20. Are you familiar with Bayes Theorem and why it is useful ?'):
+    mdlit("Bayes Theorem is used to describe the probability of an event, based on the prior knowledge of other events related to it. For example, the probability of a person having a particular disease would be based on the symptoms shown.<br>Bayes Theorem can be mathematically formulated as:")
+    c1,c2,c3 = st.columns(3)
+    with c1:
+        st.write(" ")
+    with c2:
+        st.image('assets/img5.png')
+    with c3:
+        st.write(" ")
+    mdlit("where A and B are the events and P(B) ≠ 0. Most of the times, we want P(A | B) but we know P(B | A). Bayes Theorem is extremely useful in these scenarios, as you can use it to predict P(A | B) using the above equation.<br><br>For instance, let us say that you want to find the probability of a person suffering from liver disease given that he is an alcoholic. Now finding this directly is hard but you can have records of a person being an alcoholic, given that he is suffering from liver disease.<br>Let A be the event that the person has a liver disease and B be the event that he is an alcoholic. You want to find P(A | B), but it is easier to find P(B | A) since it is more common. This is where you can make use of the Bayes Theorem to achieve the desired result.")
+    
+with st.expander('Q21. How can you get an unbiased estimate of the accuracy of the learned model ?'):
+    mdlit("Divide the input dataset into training and test datasets. Build the model using the training dataset and measure its accuracy on the test dataset. For better results, you can use Cross-validation to run multiple iterations of partitioning the dataset into the training and test datasets, analyze the accuracy of the learned model in each iteration and finally use the best model from the learned models.<br>Evaluating the model’s performance with the training dataset is not a good measure because it can easily generate overfitted models which fit well on the given training dataset but do not show similar accuracy on the test dataset. Remember, the goal is to learn a model which can perform well on the new dataset.<br>You can also split the training set into training and validation set and use the validation dataset to prevent the model from overfitting the training dataset.")
+    
+with st.expander('Q22. How would you handle the scenario where your dataset has missing or dirty (garbled) values?'):
+    mdlit("These kind of situations are very common in real life. Sometimes, the data is missing or empty. And sometimes, it can have some unexpected values such as special characters while performing data transformations or saving/fetching the data from the client/server. Another case could be when you expect an ASCII string but receive a Unicode string which may result in garbled data in your string.<br> You can either drop those rows or columns or replace the missing/garbled values with other values such as the mean value of that column or the most occurring value etc. The latter case is generally known as **Parameter Estimation**. Expectation Maximization (EM) is one of the algorithms used for the same. It is an iterative method to find the maximum likelihood or maximum a posteriori (MAP) estimates of the parameters in statistical models.")
